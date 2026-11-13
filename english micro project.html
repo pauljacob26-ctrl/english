@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SafeZone - Safety Awareness</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f6f9;
+    color: #263238;
+}
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+.container {
+    max-width: 850px;
+    margin: 35px auto;
+    padding: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #00000015;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #123c69;
+    margin-bottom: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background: #123c69;
+    color: white;
+    border: none;
+    padding: 13px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background: #087e8b;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    flex: 1;
+}
+
+.policy {
+    height: 280px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 8px;
+    line-height: 1.7;
+    margin: 15px 0;
+}
+
+.policy h3 {
+    color: #087e8b;
+    margin-top: 15px;
+}
+
+.consent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.consent input {
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.safety-item {
+    background: #e8f4f8;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #087e8b;
+}
+
+.safety-item h3 {
+    color: #123c69;
+    margin-bottom: 10px;
+}
+
+.safety-item p {
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #123c69;
+    color: white;
+    margin-top: 40px;
+}
+
+@media(max-width:600px) {
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        margin: 15px auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡 SafeZone</h1>
+    <p>Your Safety, Our Priority</p>
+</header>
+
+<!-- PAGE 1: LOGIN AND SIGNUP -->
+
+<div class="container" id="authPage">
+
+    <div class="card">
+
+        <h2>Welcome to SafeZone</h2>
+        <p>Create an account or login to access safety information.</p>
+
+        <div class="tabs">
+            <button onclick="showSignup()">Sign Up</button>
+            <button onclick="showLogin()">Login</button>
+        </div>
+
+        <div id="signupForm">
+            <h2>Create Account</h2>
+
+            <input type="text" id="signupName"
+                   placeholder="Enter your name">
+
+            <input type="email" id="signupEmail"
+                   placeholder="Enter your email">
+
+            <input type="password" id="signupPassword"
+                   placeholder="Create password">
+
+            <button onclick="signup()">Create Account</button>
+        </div>
+
+        <div id="loginForm" class="hidden">
+            <h2>Login to Your Account</h2>
+
+            <input type="email" id="loginEmail"
+                   placeholder="Enter your email">
+
+            <input type="password" id="loginPassword"
+                   placeholder="Enter your password">
+
+            <button onclick="login()">Login</button>
+        </div>
+
+        <p id="authMessage"></p>
+
+    </div>
+</div>
+
+
+<!-- PAGE 2: PRIVACY POLICY -->
+
+<div class="container hidden" id="policyPage">
+
+    <div class="card">
+
+        <h2>Privacy Policy & Terms of Service</h2>
+
+        <p>
+        Before accessing SafeZone, please read our privacy
+        policy and terms of service carefully.
+        </p>
+
+        <div class="policy">
+
+            <h3>1. Information We Collect</h3>
+
+            <p>
+            SafeZone may collect your name and email address
+            when you create an account. This prototype does
+            not collect your location or contacts.
+            </p>
+
+            <h3>2. How We Use Your Information</h3>
+
+            <p>
+            We use account information to provide access
+            to the website and improve the user experience.
+            </p>
+
+            <h3>3. Information Protection</h3>
+
+            <p>
+            We aim to protect user information and prevent
+            unauthorized access. Real deployment requires
+            appropriate security measures.
+            </p>
+
+            <h3>4. Information Sharing</h3>
+
+            <p>
+            We do not intentionally share account information
+            through this demonstration website.
+            </p>
+
+            <h3>5. User Rights</h3>
+
+            <p>
+            Users should be able to request access to,
+            correction of, or deletion of their personal data
+            in a fully implemented service.
+            </p>
+
+            <h3>6. Terms of Service</h3>
+
+            <p>
+            Users must use SafeZone responsibly and must not
+            misuse the website or its information.
+            </p>
+
+            <h3>7. Safety Disclaimer</h3>
+
+            <p>
+            Safety information is provided for awareness and
+            education. It does not replace professional advice
+            or emergency services.
+            </p>
+
+            <h3>8. Contact</h3>
+
+            <p>
+            For privacy-related questions, contact the
+            website administrator.
+            </p>
+
+        </div>
+
+        <div class="consent">
+            <input type="checkbox" id="acceptPolicy">
+            <label for="acceptPolicy">
+                I have read and accept the Privacy Policy
+                and Terms of Service.
+            </label>
+        </div>
+
+        <button id="acceptButton" onclick="acceptPolicy()"
+                disabled>
+            Accept & Continue
+        </button>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+</div>
+
+
+<!-- PAGE 3: SAFETY PRECAUTIONS -->
+
+<div class="container hidden" id="safetyPage">
+
+    <div class="card">
+
+        <h2>Welcome to SafeZone!</h2>
+
+        <p>
+        You have successfully logged in and accepted our
+        Privacy Policy. Now you can explore safety precautions.
+        </p>
+
+        <h2 style="margin-top:25px">
+            Important Safety Precautions
+        </h2>
+
+        <div class="safety-grid">
+
+            <div class="safety-item">
+                <h3>🚦 Road Safety</h3>
+                <p>
+                Always follow traffic signals, wear a helmet
+                while riding and use seat belts in vehicles.
+                Avoid using mobile phones while driving.
+                </p>
+            </div>
+
+            <div class="safety-item">
+                <h3>🔐 Cyber Safety</h3>
+                <p>
+                Use strong passwords, avoid suspicious links,
+                never share OTPs and protect your personal
+                information online.
+                </p>
+            </div>
+
+            <div class="safety-item">
+                <h3>🏠 Home Safety</h3>
+                <p>
+                Switch off electrical appliances when not in
+                use, keep emergency contacts available and
+                follow basic fire safety precautions.
+                </p>
+            </div>
+
+            <div class="safety-item">
+                <h3>🧍 Personal Safety</h3>
+                <p>
+                Stay aware of your surroundings, avoid sharing
+                personal details with strangers and inform
+                trusted people about your travel plans.
+                </p>
+            </div>
+
+            <div class="safety-item">
+                <h3>🔥 Fire Safety</h3>
+                <p>
+                Know your emergency exits, avoid overloading
+                electrical sockets and follow safe evacuation
+                procedures during a fire.
+                </p>
+            </div>
+
+            <div class="safety-item">
+                <h3>🏥 Health Safety</h3>
+                <p>
+                Maintain personal hygiene, drink clean water,
+                follow basic first-aid guidance and seek
+                professional medical help when needed.
+                </p>
+            </div>
+
+        </div>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+</div>
+
+
+<footer>
+    <p>SafeZone | Your Safety, Our Priority</p>
+    <p>Privacy • Protection • Awareness</p>
+</footer>
+
+
+<script>
+
+// Switch to signup page
+
+function showSignup() {
+    document.getElementById("signupForm")
+        .classList.remove("hidden");
+
+    document.getElementById("loginForm")
+        .classList.add("hidden");
+
+    document.getElementById("authMessage").innerText = "";
+}
+
+
+// Switch to login page
+
+function showLogin() {
+    document.getElementById("loginForm")
+        .classList.remove("hidden");
+
+    document.getElementById("signupForm")
+        .classList.add("hidden");
+
+    document.getElementById("authMessage").innerText = "";
+}
+
+
+// Signup function (demonstration only)
+
+function signup() {
+
+    let name = document.getElementById("signupName").value;
+    let email = document.getElementById("signupEmail").value;
+    let password = document.getElementById("signupPassword").value;
+
+    if(name === "" || email === "" || password === "") {
+        alert("Please fill all the fields.");
+        return;
+    }
+
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    if(password.length < 6) {
+        alert("Password must contain at least 6 characters.");
+        return;
+    }
+
+    sessionStorage.setItem("demoUser", email);
+
+    alert("Account created successfully!");
+
+    openPolicy();
+}
+
+
+// Login function (demonstration only)
+
+function login() {
+
+    let email = document.getElementById("loginEmail").value;
+    let password = document.getElementById("loginPassword").value;
+
+    if(email === "" || password === "") {
+        alert("Please enter your email and password.");
+        return;
+    }
+
+    sessionStorage.setItem("demoUser", email);
+
+    alert("Login successful!");
+
+    openPolicy();
+}
+
+
+// Open privacy policy page
+
+function openPolicy() {
+
+    document.getElementById("authPage")
+        .classList.add("hidden");
+
+    document.getElementById("safetyPage")
+        .classList.add("hidden");
+
+    document.getElementById("policyPage")
+        .classList.remove("hidden");
+
+    document.getElementById("acceptPolicy").checked = false;
+
+    document.getElementById("acceptButton").disabled = true;
+}
+
+
+// Enable accept button only after checkbox is selected
+
+document.getElementById("acceptPolicy").addEventListener(
+    "change", function() {
+
+        document.getElementById("acceptButton").disabled =
+            !this.checked;
+
+    }
+);
+
+
+// Accept policy and open safety website
+
+function acceptPolicy() {
+
+    if(!document.getElementById("acceptPolicy").checked) {
+        alert("Please accept the policy first.");
+        return;
+    }
+
+    sessionStorage.setItem("policyAccepted", "yes");
+
+    document.getElementById("policyPage")
+        .classList.add("hidden");
+
+    document.getElementById("safetyPage")
+        .classList.remove("hidden");
+
+}
+
+
+// Logout function
+
+function logout() {
+
+    sessionStorage.removeItem("demoUser");
+    sessionStorage.removeItem("policyAccepted");
+
+    document.getElementById("authPage")
+        .classList.remove("hidden");
+
+    document.getElementById("policyPage")
+        .classList.add("hidden");
+
+    document.getElementById("safetyPage")
+        .classList.add("hidden");
+
+    showLogin();
+
+    alert("You have logged out successfully.");
+
+}
+
+</script>
+
+</body>
+</html>
